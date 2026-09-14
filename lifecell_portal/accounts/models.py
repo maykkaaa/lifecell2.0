@@ -1,0 +1,35 @@
+from django.db import models
+from django.contrib.auth.models import User
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(
+        User,
+        on_delete=models.CASCADE,
+        related_name='profile'
+    )
+
+    photo = models.ImageField(
+        upload_to='profiles/',
+        blank=True,
+        null=True
+    )
+
+    about = models.TextField(
+        'Про себе',
+        blank=True
+    )
+
+    birth_date = models.DateField(
+        'Дата народження',
+        blank=True,
+        null=True
+    )
+
+    created_at = models.DateTimeField(
+        'Дата створення',
+        auto_now_add=True
+    )
+
+    def __str__(self):
+        return self.user.username

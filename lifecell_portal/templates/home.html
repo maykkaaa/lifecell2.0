@@ -1,0 +1,869 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Lifecell Portal
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<!-- =====================================================
+     HERO SLIDER
+===================================================== -->
+
+<section class="hero-section">
+
+    <div class="container">
+
+        <div
+            id="lifecellSlider"
+            class="carousel slide hero-slider"
+            data-bs-ride="carousel"
+            data-bs-interval="5000"
+        >
+
+
+            <!-- INDICATORS -->
+
+            <div class="carousel-indicators">
+
+                <button
+                    type="button"
+                    data-bs-target="#lifecellSlider"
+                    data-bs-slide-to="0"
+                    class="active"
+                ></button>
+
+                <button
+                    type="button"
+                    data-bs-target="#lifecellSlider"
+                    data-bs-slide-to="1"
+                ></button>
+
+                <button
+                    type="button"
+                    data-bs-target="#lifecellSlider"
+                    data-bs-slide-to="2"
+                ></button>
+
+                <button
+                    type="button"
+                    data-bs-target="#lifecellSlider"
+                    data-bs-slide-to="3"
+                ></button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SLIDE 1
+            ================================================== -->
+
+            <div class="carousel-inner">
+
+
+                <div class="carousel-item active">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=85"
+                        class="hero-image"
+                        alt="Команда"
+                    >
+
+                    <div class="hero-overlay"></div>
+
+
+                    <div class="hero-content">
+
+                        <span class="hero-label">
+                            LIFECELL PORTAL
+                        </span>
+
+                        <h1>
+                            Будь завжди<br>
+                            на зв'язку
+                        </h1>
+
+                        <p>
+                            Уся важлива інформація
+                            компанії в одному місці.
+                        </p>
+
+                        <a
+                            href="#services"
+                            class="hero-button"
+                        >
+                            Дізнатися більше
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     SLIDE 2
+                ================================================== -->
+
+                <div class="carousel-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1800&q=85"
+                        class="hero-image"
+                        alt="Командна робота"
+                    >
+
+                    <div class="hero-overlay"></div>
+
+
+                    <div class="hero-content">
+
+                        <span class="hero-label">
+                            КОМАНДА
+                        </span>
+
+                        <h1>
+                            Разом<br>
+                            сильніші
+                        </h1>
+
+                        <p>
+                            Спілкуйся, ділись ідеями
+                            та працюй разом.
+                        </p>
+
+                        <a
+                            href="{% url 'portal:forum' %}"
+                            class="hero-button"
+                        >
+                            Перейти до форуму
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     SLIDE 3
+                ================================================== -->
+
+                <div class="carousel-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1800&q=85"
+                        class="hero-image"
+                        alt="Робота команди"
+                    >
+
+                    <div class="hero-overlay"></div>
+
+
+                    <div class="hero-content">
+
+                        <span class="hero-label">
+                            РОЗВИТОК
+                        </span>
+
+                        <h1>
+                            Навчайся.<br>
+                            Розвивайся.
+                        </h1>
+
+                        <p>
+                            Навчальні матеріали,
+                            події та результати.
+                        </p>
+
+                        <a
+                            href="#materials"
+                            class="hero-button"
+                        >
+                            Матеріали
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     SLIDE 4
+                ================================================== -->
+
+                <div class="carousel-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1800&q=85"
+                        class="hero-image"
+                        alt="Корпоративна команда"
+                    >
+
+                    <div class="hero-overlay"></div>
+
+
+                    <div class="hero-content">
+
+                        <span class="hero-label">
+                            LIFECELL
+                        </span>
+
+                        <h1>
+                            Один портал.<br>
+                            Одна команда.
+                        </h1>
+
+                        <p>
+                            Новини, події, форум,
+                            матеріали та щоденник.
+                        </p>
+
+                        <a
+                            href="#news"
+                            class="hero-button"
+                        >
+                            Переглянути портал
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- LEFT -->
+
+            <button
+                class="carousel-control-prev hero-control"
+                type="button"
+                data-bs-target="#lifecellSlider"
+                data-bs-slide="prev"
+            >
+
+                <span class="carousel-control-prev-icon"></span>
+
+                <span class="visually-hidden">
+                    Попередній
+                </span>
+
+            </button>
+
+
+
+            <!-- RIGHT -->
+
+            <button
+                class="carousel-control-next hero-control"
+                type="button"
+                data-bs-target="#lifecellSlider"
+                data-bs-slide="next"
+            >
+
+                <span class="carousel-control-next-icon"></span>
+
+                <span class="visually-hidden">
+                    Наступний
+                </span>
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     QUICK ACTIONS
+===================================================== -->
+
+<section class="quick-actions">
+
+    <div class="container">
+
+        <div class="quick-actions-box">
+
+
+            <a href="#services">
+
+                <i class="bi bi-phone"></i>
+
+                <span>
+                    Корпоративні сервіси
+                </span>
+
+            </a>
+
+
+            <a href="#events">
+
+                <i class="bi bi-calendar-event"></i>
+
+                <span>
+                    Події
+                </span>
+
+            </a>
+
+
+            <a href="{% url 'portal:forum' %}">
+
+                <i class="bi bi-chat-dots"></i>
+
+                <span>
+                    Форум
+                </span>
+
+            </a>
+
+
+            <a href="{% url 'diary:list' %}">
+
+                <i class="bi bi-journal-text"></i>
+
+                <span>
+                    Щоденник
+                </span>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SERVICES
+===================================================== -->
+
+<section
+    id="services"
+    class="services-section"
+>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                LIFECELL PORTAL
+            </span>
+
+            <h2>
+                Все необхідне поруч
+            </h2>
+
+            <p>
+                Швидкий доступ до основних розділів
+                корпоративного порталу.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- NEWS -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <a
+                    href="#news"
+                    class="service-card"
+                >
+
+                    <div class="service-icon yellow">
+                        <i class="bi bi-newspaper"></i>
+                    </div>
+
+                    <h3>
+                        Новини
+                    </h3>
+
+                    <p>
+                        Останні новини компанії
+                        та важливі події.
+                    </p>
+
+                    <span class="service-arrow">
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- EVENTS -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <a
+                    href="#events"
+                    class="service-card"
+                >
+
+                    <div class="service-icon yellow">
+                        <i class="bi bi-calendar3"></i>
+                    </div>
+
+                    <h3>
+                        Події
+                    </h3>
+
+                    <p>
+                        Корпоративні заходи,
+                        зустрічі та календар.
+                    </p>
+
+                    <span class="service-arrow">
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- MATERIALS -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <a
+                    href="#materials"
+                    class="service-card"
+                >
+
+                    <div class="service-icon yellow">
+                        <i class="bi bi-folder2-open"></i>
+                    </div>
+
+                    <h3>
+                        Матеріали
+                    </h3>
+
+                    <p>
+                        Документи, посилання
+                        та навчальні матеріали.
+                    </p>
+
+                    <span class="service-arrow">
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- FORUM -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <a
+                    href="{% url 'portal:forum' %}"
+                    class="service-card"
+                >
+
+                    <div class="service-icon yellow">
+                        <i class="bi bi-chat-square-text"></i>
+                    </div>
+
+                    <h3>
+                        Форум
+                    </h3>
+
+                    <p>
+                        Спілкуйся, став питання
+                        та обговорюй теми.
+                    </p>
+
+                    <span class="service-arrow">
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     NEWS
+===================================================== -->
+
+<section
+    id="news"
+    class="content-section"
+>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                АКТУАЛЬНЕ
+            </span>
+
+            <h2>
+                Останні новини
+            </h2>
+
+        </div>
+
+
+        {% if news %}
+
+            <div class="row g-4">
+
+                {% for item in news %}
+
+                    <div class="col-md-4">
+
+                        <div class="portal-card">
+
+                            <div class="portal-card-date">
+                                {{ item.created_at|date:"d.m.Y" }}
+                            </div>
+
+                            <h3>
+                                {{ item.title }}
+                            </h3>
+
+                            <p>
+                                {{ item.short_description }}
+                            </p>
+
+                            <div class="portal-card-arrow">
+                                →
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <div class="empty-state">
+
+                <i class="bi bi-newspaper"></i>
+
+                <h3>
+                    Новин поки немає
+                </h3>
+
+                <p>
+                    Нові публікації з'являться тут.
+                </p>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     EVENTS
+===================================================== -->
+
+<section
+    id="events"
+    class="blue-section"
+>
+
+    <div class="container">
+
+        <div class="section-heading light">
+
+            <span>
+                КАЛЕНДАР
+            </span>
+
+            <h2>
+                Найближчі події
+            </h2>
+
+        </div>
+
+
+        {% if events %}
+
+            <div class="row g-4">
+
+                {% for event in events %}
+
+                    <div class="col-md-4">
+
+                        <div class="event-card">
+
+                            <div class="event-date">
+
+                                <strong>
+                                    {{ event.date|date:"d" }}
+                                </strong>
+
+                                <span>
+                                    {{ event.date|date:"M" }}
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <h3>
+                                    {{ event.title }}
+                                </h3>
+
+                                <p>
+                                    {{ event.description|truncatewords:20 }}
+                                </p>
+
+                                {% if event.location %}
+
+                                    <small>
+                                        <i class="bi bi-geo-alt"></i>
+                                        {{ event.location }}
+                                    </small>
+
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <div class="empty-state dark">
+
+                <i class="bi bi-calendar-x"></i>
+
+                <h3>
+                    Подій поки немає
+                </h3>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ANNOUNCEMENTS
+===================================================== -->
+
+<section
+    id="announcements"
+    class="content-section"
+>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                ВАЖЛИВО
+            </span>
+
+            <h2>
+                Оголошення
+            </h2>
+
+        </div>
+
+
+        {% if announcements %}
+
+            <div class="announcement-list">
+
+                {% for item in announcements %}
+
+                    <div class="announcement">
+
+                        <div class="announcement-icon">
+                            <i class="bi bi-megaphone"></i>
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                {{ item.title }}
+                            </h3>
+
+                            <p>
+                                {{ item.content|truncatewords:30 }}
+                            </p>
+
+                            <small>
+                                {{ item.created_at|date:"d.m.Y" }}
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <div class="empty-state">
+
+                <i class="bi bi-megaphone"></i>
+
+                <h3>
+                    Оголошень поки немає
+                </h3>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MATERIALS
+===================================================== -->
+
+<section
+    id="materials"
+    class="materials-section"
+>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                БІБЛІОТЕКА
+            </span>
+
+            <h2>
+                Корисні матеріали
+            </h2>
+
+        </div>
+
+
+        {% if materials %}
+
+            <div class="row g-4">
+
+                {% for material in materials %}
+
+                    <div class="col-md-4">
+
+                        <div class="material-card">
+
+                            <div class="material-icon">
+
+                                {% if material.material_type == "file" %}
+
+                                    <i class="bi bi-file-earmark-text"></i>
+
+                                {% elif material.material_type == "youtube" %}
+
+                                    <i class="bi bi-youtube"></i>
+
+                                {% else %}
+
+                                    <i class="bi bi-link-45deg"></i>
+
+                                {% endif %}
+
+                            </div>
+
+
+                            <h3>
+                                {{ material.title }}
+                            </h3>
+
+
+                            {% if material.description %}
+
+                                <p>
+                                    {{ material.description }}
+                                </p>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <div class="empty-state">
+
+                <i class="bi bi-folder2-open"></i>
+
+                <h3>
+                    Матеріалів поки немає
+                </h3>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+
+
+{% endblock %}

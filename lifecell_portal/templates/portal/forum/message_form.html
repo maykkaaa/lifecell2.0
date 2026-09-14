@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Повідомлення | Форум{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <div class="card shadow">
+
+                <div class="card-body p-4">
+
+                    {% if object %}
+                        <h2 class="mb-4">
+                            Редагувати повідомлення
+                        </h2>
+                    {% else %}
+                        <h2 class="mb-4">
+                            Нове повідомлення
+                        </h2>
+                    {% endif %}
+
+                    <form method="post">
+
+                        {% csrf_token %}
+
+                        {{ form.as_p }}
+
+                        <button type="submit"
+                                class="btn btn-primary">
+                            Зберегти
+                        </button>
+
+                        <a href="javascript:history.back()"
+                           class="btn btn-secondary">
+                            Скасувати
+                        </a>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

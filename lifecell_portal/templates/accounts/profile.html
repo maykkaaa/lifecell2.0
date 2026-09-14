@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}
+Профіль | Lifecell Portal
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <div class="card shadow">
+
+                <div class="card-body p-4">
+
+                    <h2 class="mb-4">
+                        Мій профіль
+                    </h2>
+
+                    <div class="text-center mb-4">
+
+                        {% if profile.photo %}
+
+                            <img
+                                src="{{ profile.photo.url }}"
+                                alt="Фото профілю"
+                                class="profile-photo"
+                            >
+
+                        {% else %}
+
+                            <div class="profile-placeholder">
+                                {{ user.username|first|upper }}
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+                    <div class="mb-3">
+                        <strong>Логін:</strong>
+                        {{ user.username }}
+                    </div>
+
+                    <div class="mb-3">
+                        <strong>Email:</strong>
+                        {{ user.email }}
+                    </div>
+
+                    <div class="mb-3">
+                        <strong>Про себе:</strong>
+
+                        {% if profile.about %}
+                            {{ profile.about }}
+                        {% else %}
+                            <span class="text-muted">
+                                Інформація не вказана
+                            </span>
+                        {% endif %}
+
+                    </div>
+
+                    <div class="mb-4">
+                        <strong>Дата народження:</strong>
+
+                        {% if profile.birth_date %}
+                            {{ profile.birth_date|date:"d.m.Y" }}
+                        {% else %}
+                            <span class="text-muted">
+                                Не вказана
+                            </span>
+                        {% endif %}
+
+                    </div>
+
+                    <a
+                        href="{% url 'accounts:profile_edit' %}"
+                        class="btn btn-primary"
+                    >
+                        Редагувати профіль
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

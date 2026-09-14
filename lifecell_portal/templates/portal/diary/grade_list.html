@@ -1,0 +1,322 @@
+{% extends "base.html" %}
+
+{% block title %}Електронний щоденник | Lifecell Portal{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="mb-4">
+        <h1>Електронний щоденник</h1>
+
+        <p class="text-muted mb-1">
+            Перегляд навчальних результатів
+        </p>
+
+        <p>
+            <strong>Учень:</strong>
+            {{ diary_student }}
+        </p>
+    </div>
+
+
+    <!-- ФІЛЬТРИ -->
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+
+            <form method="get">
+
+                <div class="row g-3">
+
+                    <div class="col-md-4">
+
+                        <label class="form-label">
+                            Предмет
+                        </label>
+
+                        <select
+                            name="subject"
+                            class="form-select"
+                        >
+
+                            <option value="">
+                                Усі предмети
+                            </option>
+
+                            {% for subject in subjects %}
+
+                                <option
+                                    value="{{ subject }}"
+                                    {% if selected_subject == subject %}
+                                        selected
+                                    {% endif %}
+                                >
+                                    {{ subject }}
+                                </option>
+
+                            {% endfor %}
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        <label class="form-label">
+                            Від
+                        </label>
+
+                        <input
+                            type="date"
+                            name="date_from"
+                            class="form-control"
+                            value="{{ selected_date_from }}"
+                        >
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        <label class="form-label">
+                            До
+                        </label>
+
+                        <input
+                            type="date"
+                            name="date_to"
+                            class="form-control"
+                            value="{{ selected_date_to }}"
+                        >
+
+                    </div>
+
+
+                    <div class="col-md-8">
+
+                        <label class="form-label">
+                            Сортування
+                        </label>
+
+                        <select
+                            name="sort"
+                            class="form-select"
+                        >
+
+                            <option
+                                value="-date"
+                                {% if selected_sort == "-date" %}
+                                    selected
+                                {% endif %}
+                            >
+                                Спочатку нові
+                            </option>
+
+                            <option
+                                value="date"
+                                {% if selected_sort == "date" %}
+                                    selected
+                                {% endif %}
+                            >
+                                Спочатку старі
+                            </option>
+
+                            <option
+                                value="-grade"
+                                {% if selected_sort == "-grade" %}
+                                    selected
+                                {% endif %}
+                            >
+                                Від найвищої оцінки
+                            </option>
+
+                            <option
+                                value="grade"
+                                {% if selected_sort == "grade" %}
+                                    selected
+                                {% endif %}
+                            >
+                                Від найнижчої оцінки
+                            </option>
+
+                            <option
+                                value="subject"
+                                {% if selected_sort == "subject" %}
+                                    selected
+                                {% endif %}
+                            >
+                                За предметом А-Я
+                            </option>
+
+                            <option
+                                value="-subject"
+                                {% if selected_sort == "-subject" %}
+                                    selected
+                                {% endif %}
+                            >
+                                За предметом Я-А
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="col-md-4 d-flex align-items-end">
+
+                        <div class="d-flex gap-2 w-100">
+
+                            <button
+                                type="submit"
+                                class="btn btn-primary flex-grow-1"
+                            >
+                                Застосувати
+                            </button>
+
+                            <a
+                                href="{% url 'diary:list' %}"
+                                class="btn btn-outline-secondary"
+                            >
+                                Скинути
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+
+    <!-- ТАБЛИЦЯ -->
+
+    {% if grades %}
+
+        <div class="card shadow-sm">
+
+            <div class="card-body">
+
+                <div class="table-responsive">
+
+                    <table class="table table-hover align-middle diary-table">
+
+                        <thead class="table-dark">
+
+                            <tr>
+                                <th>Предмет</th>
+                                <th>Назва роботи</th>
+                                <th>Оцінка</th>
+                                <th>Дата</th>
+                                <th>Коментар</th>
+
+                                {% if user.is_staff %}
+                                    <th>Учень</th>
+                                {% endif %}
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            {% for item in grades %}
+
+                                <tr>
+
+                                    <td>
+                                        <strong>
+                                            {{ item.subject }}
+                                        </strong>
+                                    </td>
+
+                                    <td>
+                                        {{ item.work_name }}
+                                    </td>
+
+                                    <td>
+
+                                        {% if item.grade >= 10 %}
+
+                                            <span class="badge bg-success grade-badge">
+                                                {{ item.grade }}
+                                            </span>
+
+                                        {% elif item.grade >= 7 %}
+
+                                            <span class="badge bg-warning text-dark grade-badge">
+                                                {{ item.grade }}
+                                            </span>
+
+                                        {% else %}
+
+                                            <span class="badge bg-danger grade-badge">
+                                                {{ item.grade }}
+                                            </span>
+
+                                        {% endif %}
+
+                                    </td>
+
+                                    <td>
+                                        {{ item.date|date:"d.m.Y" }}
+                                    </td>
+
+                                    <td>
+
+                                        {% if item.comment %}
+                                            {{ item.comment }}
+                                        {% else %}
+                                            <span class="text-muted">
+                                                —
+                                            </span>
+                                        {% endif %}
+
+                                    </td>
+
+                                    {% if user.is_staff %}
+
+                                        <td>
+                                            {{ item.student.username }}
+                                        </td>
+
+                                    {% endif %}
+
+                                </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    {% else %}
+
+        <div class="alert alert-info shadow-sm">
+
+            <h5 class="alert-heading">
+                Оцінок не знайдено
+            </h5>
+
+            <p class="mb-0">
+                За вибраними параметрами оцінок не знайдено.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}
